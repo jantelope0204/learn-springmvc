@@ -10,6 +10,8 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>study-servlet</module>
+        <module>springMVC-01</module>
+        <module>springMVC-annotation01</module>
     </modules>
 
     <properties>

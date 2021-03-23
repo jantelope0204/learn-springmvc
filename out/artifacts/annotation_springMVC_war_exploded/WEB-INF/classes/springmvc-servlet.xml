@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <mvc:annotation-driven/>
+<!--    自动扫描包 扫描controller-->
+    <context:component-scan base-package="com.controller"/>
+<!--    springMVC 不处理静态资源映射-->
+    <mvc:default-servlet-handler/>
+<!--    spring MVC 注解驱动-->
+
+<!--
+       1.支持注解驱动.
+           目前开发常用就是支出annotation 注解开发 简化代码 采用@MappingRequest
+           如果想要使用MappingRequest
+           必须上下文注册 DefaultAnnotationHandlerMapping以及AnnotationMethodHandlerAdapter
+           这两个方法 分别在类以及方法中识别处理
+           因此annotation-driven 自动完成这两个实例的注入
+-->
+
+<!--    配置视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="internalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+</beans>
